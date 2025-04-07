@@ -21,6 +21,8 @@ function creaThrottler(funzione, limite) {
       setTimeout(() => {
         canExecute = true;
       }, limite);
+    } else {
+      console.log("Non posso eseguire");
     }
   };
 }
