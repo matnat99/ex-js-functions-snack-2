@@ -7,9 +7,13 @@ una nuova funzione che avvia un setTimeout per stampare "Tempo scaduto!".
 */
 
 function creaTimer(ms) {
-  return setTimeout(() => {
-    console.log("Tempo scaduto!");
-  }, ms);
+  return () => {
+    setTimeout(() => {
+      console.log("Tempo scaduto!");
+    }, ms);
+  };
 }
 
-creaTimer(3000);
+const timer3s = creaTimer(3000);
+
+timer3s();
