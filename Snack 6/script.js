@@ -6,12 +6,18 @@ Definisci una funzione creaContatoreAutomatico che accetta un intervallo di temp
 incrementando un contatore e stampandolo.
 */
 
-function creaContatoreAutomatico(intervallo) {
+function creaContatoreAutomatico(name, intervallo) {
   let contatore = 0;
 
-  setInterval(() => {
-    console.log(contatore++);
-  }, intervallo);
+  return () => {
+    setInterval(() => {
+      console.log(`${name}: ${contatore++}`);
+    }, intervallo);
+  };
 }
 
-creaContatoreAutomatico(1000);
+const contaOgniSecondo = creaContatoreAutomatico("uno", 1000);
+const contaOgni5Secondi = creaContatoreAutomatico("cinque", 5000);
+
+contaOgniSecondo();
+contaOgni5Secondi();
